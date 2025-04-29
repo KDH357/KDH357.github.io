@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul {
+            list-style:none;
+            margin: 10px 850px 30px 10px;
+            border: solid 1px grey;
+            background-color: white;
+            padding: 20px;
+        }
+        #firstmenu li{
+            background-color: antiquewhite;
+            border: solid 5x antiquewhite;
+            border-radius: 5px;
+            display: inline;
+            font-size: 25px;
+            text-align: center;
+            margin: 30px 0 0 80px;  
+        }
+        #firstmenu a:link {color:#f59842; text-decoration:none;}
+        #firstmenu a:visited{color:black; font-weight:bold; text-decoration: underline;}
+        #firstmenu a:hover{color:#ff0000; font-weight:bold; text-decoration:underline;}
+        #firstmenu a:active{color:cornflowerblue;}
+        #firstmenu a{display: inline;}
+        #menu{
+            width:500px;
+            padding:20px;
+            margin:20px 0 30px 50px;
+            background-color:#eeeeee;
+            border:solid 1px #aaaaaa;
+            text-align:center;
+        }
+        #menu li{                   /* ul안에 있는 li -> inline형태를 준거임. li의 형태를 inline형태로 변환함.*/
+            display:inline;
+        }
+        a{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <ul id="firstmenu">
+        <li><a href="index.html">밴드 페이지</a></li>
+        <li><a href="book_banner.html">book_banner</a></li>
+        <li><a href="boxes.html">boxes</a></li>
+        <li><a href="inline_block.html">inline_block</a></li>
+    </ul>
+
+    <ul id="menu">
+        <li>회사소개 |</li>
+        <li>제품소개 |</li>
+        <li>공지사항 |</li>
+        <li>업무제휴 |</li>
+        <li>고객센터 |</li>
+    </ul>
+    <h2>인라인과 블록</h2>
+
+    <h3> 1. 인라인 요소</h3>
+    <span>텍스트1</span>
+    <span>텍스트2</span>
+    <span>텍스트3</span>
+    <img src="image1.png" width="250" height="150">
+    <img src="image2.png" width="250" height="150">
+
+    <h3>2.블록요소</h3>
+    <p>이것은 단락입니다.</p>
+    <div>박스1</div>
+    <div>박스2</div>
+    <br>
+    <p>수직 방향 메뉴:</p>
+    <a href="http://naver.com" target="_blank">네이버</a>
+    <a href="http://daum.net" target="_blank">다음</a>
+    <a href="http://google.com" target="_blank">구글</a>
+</body>
+</html>

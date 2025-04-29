@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background-color: #FFDCE1;
+        }
+        #back{
+            width: 950px;
+            height:300px;
+            background-image:url("background.jpg");
+            border:solid 1px grey;
+        }
+        #back img{
+            margin:200px 0;
+        }
+        h1{
+            margin: 25px 850px 0 10px;
+            border-bottom: dashed 5px blanchedalmond;
+        }
+        h2{
+            margin: 30px 0 10px 10px;
+        }
+        p {
+            display:inline;
+        }
+        ul {
+            list-style:none;
+            margin: 10px 850px 30px 10px;
+            border: solid 1px grey;
+            background-color: white;
+            padding: 20px;
+        }
+        #firstmenu li{
+            background-color: antiquewhite;
+            border: solid 5x antiquewhite;
+            border-radius: 5px;
+            display: inline;
+            font-size: 25px;
+            text-align: center;
+            margin: 30px 0 0 80px;  
+        }
+        a:link{color:#f59842; text-decoration:none;}
+        a:visited{color:black; font-weight:bold; text-decoration: underline;}
+        a:hover{color:#ff0000; font-weight:bold; text-decoration:underline;}
+        a:active{color:cornflowerblue;} 
+        #menu li{
+            font-family:"맑은 고딕";
+            font-size:20px;
+            font-weight: bold;
+            margin: 15px;
+            padding:5px;
+            display:inline;
+            background-color: white;
+            border: solid 3px white;
+            text-align: center;
+        }
+        .text_box{
+            width:600px;
+            margin:20px;
+            padding:10px;
+            border:solid 3px antiquewhite;
+            background-color: antiquewhite;
+            font-size:15px;
+            border-radius: 15px;
+        }
+        #box{
+            width:600px;
+            margin:20px;
+            padding:10px;
+            border:solid 3px antiquewhite;
+            background-color: antiquewhite;
+            font-size:15px;
+            border-radius: 15px;
+        }
+        #box li{
+            list-style-image: url("icon.png");
+        }
+        .introduct{
+            display:inline-block;
+            text-align:center;
+        }
+        .introduct img{
+            width:300px;
+            height:200px;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin: 5px 5px 5px 10px;
+        }
+        .introduct_box{
+            display: inline-block;
+            width: 200px;
+            padding: 10px;
+            border-top: dashed 3px black;
+        }
+    </style>
+</head>
+<body>
+    <ul id="firstmenu">
+        <li><a href="index.html">밴드 페이지</a></li>
+        <li><a href="book_banner.html">book_banner</a></li>
+        <li><a href="boxes.html">boxes</a></li>
+        <li><a href="inline_block.html">inline_block</a></li>
+    </ul>
+
+    <ul id="menu">
+        <li>| 뮬 악기장터 이용 |</li>
+        <li>| 밴드 소개 |</li>
+        <li>| 밴드 신청 |</li>
+        <li>| 일일 밴드 체험 |</li>
+        <li>| 일정/공지 사항 |</li>
+    </ul>
+    <div id="back">
+        <img src="mule.png">
+    </div>
+    <h1>&lt;뮬과 함께하는 밴드 소개&gt;</h1>
+    
+
+    <h2>1. 밴드 소개</h2>
+    <ul class="text_box">
+        <li>저희 밴드를 소개합니다. 현재 구성원은 보컬,일렉/베이스 기타, 드럼으로 구성되어있습니다.</li>
+        <li>커버곡을 위주로 진행하고 있으며 자작곡을 만들고 있습니다.</li>
+        </ul>
+    <div class="introduct">
+        <img src="band1.jpg">
+        <h3>밴드 공연</h3>
+        <div class="introduct_box">
+            홍대에서 진행했던 정기공연입니다.
+            최대한 많이 공연을 진행하려 노력하고 있습니다.
+        </div>
+    </div>
+    <div class="introduct">
+        <img src="band2.jpg">
+        <h3>홍대 버스킹</h3>
+        <div class="introduct_box">
+            홍대 버스킹을 진행했습니다.
+            부족한 장비로 좋은 공연을 하려 노력했습니다.
+        </div>
+    </div>
+    <div class="introduct">
+        <img src="band3.jpg">
+        <h3>자작곡 제작</h3>
+        <div class="introduct_box">
+            저희 밴드만의 곡을 작곡하려 노력하고 있습니다.
+            아직 작곡하는 중이고 녹음도 할 예정입니다.
+        </div>
+    </div>
+
+    <h2>2. 밴드 신청</h2>
+    <ul id="box">
+        <li>밴드에서 구하는 인원은 다음과 같습니다.</li>
+        <li>1.사운드 엔지니어</li>
+        <li>2.통/일렉 기타 연주자</li>
+        <li>3.영상 촬영 및 편집</li>
+    </ul>
+    
+    <h2>3.일일 밴드체험 및 공지사항</h2>
+    <ul class="text_box">
+        <li>일일 밴드체험 관련 문의는 아래에 전화번호로 문의주세요</li>
+        <li>010-8319-3505</li>
+        <li>추가 공지사항 및 공연 관련 일정은 매주 업데이트 됩니다.</li>
+    </ul>
+    
+    <h2>4.뮬(MULE)</h2>
+    <ul class="text_box">
+        <li>뮬은 음악관 관련된 정보제공 및 조달을 해주는 사이트입니다.</li>
+        <li>악기 중고거래 및 레슨, 밴드 모집도 가능합니다.</li>
+        <li>자세한 내용은 링크를 참조하세요.<a href="https://www.mule.co.kr/" target="_blank" >(클릭)</li>
+    </ul>
+</body>
+</html>
