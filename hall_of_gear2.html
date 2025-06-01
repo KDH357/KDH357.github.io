@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hall_of_gear - 악기 추천</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial;
+      padding: 10px;
+      background: #333;
+      margin: 0;
+    }
+    .header {
+      padding-top: 50px;
+      text-align: center;
+      background: white;
+    }
+    .header h1 {
+      font-size: 50px;
+    }
+    .topnav {
+      overflow: hidden;
+      background-color: whitesmoke;
+      border-top: solid 3px black;
+      border-bottom: solid 3px black;
+      text-align: center;
+      padding: 10px 0;
+    }
+    .topnav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: inline-block;
+    }
+    .topnav li {
+      display: inline-block;
+    }
+    .topnav #menu_logo {
+      margin-right: 50px;
+    }
+    .topnav #menu_logo img {
+      width: 100px;
+      height: 100px;
+      vertical-align: middle;
+    }
+    .topnav li.item {
+      margin: 0 15px;
+    }
+    .topnav a {
+      display: inline-block;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+      padding: 40px 50px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .topnav li.item.active {
+      background-color: #ddd;
+    }
+    .topnav a:hover {
+      background-color: beige;
+      color: black;
+    }
+    .main {
+      background: white;
+      padding: 40px;
+      margin-top: 0;
+      display: flex;
+    }
+    .aside {
+      width: 20%;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    .aside nav ul {
+      list-style: none;
+      padding: 0;
+    }
+    .aside nav li {
+      margin: 15px 0;
+      font-size: 16px;
+    }
+    .aside nav li.active {
+      font-weight: bold;
+      background-color: #ddd;
+      padding: 5px;
+    }
+    .aside nav li a {
+      color: black;
+      text-decoration: none;
+    }
+    .aside nav li a:hover {
+      text-decoration: underline;
+    }
+    .content {
+      width: 80%;
+      padding: 0 30px;
+    }
+    h4 {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+    .recommend-top {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    .recommend-top-left {
+      width: 60%;
+      text-align: center;
+    }
+    .recommend-top-left img {
+      width: 100%;
+      height: 500px;
+      border: 3px solid #444;
+      object-fit: cover;
+      background-color: white;
+    }
+    .thumbnail-bar {
+      text-align: center;
+      padding: 20px 0;
+      margin-left: 30px;
+    }
+    .thumbnail-bar img {
+      width: 80px;
+      height: 80px;
+      margin: 10px;
+      border: solid 5px #3d3d3d;
+    }
+    .thumbnail-bar img:hover {
+      border-color: white;
+    }
+    .recommend-desc {
+      width: 40%;
+      font-size: 16px;
+      padding: 20px;
+      border: 3px solid #000;
+      background: white;
+      height: 500px;
+    }
+    .divider {
+      width: 100%;
+      height: 1px;
+      border-top: 4px dashed #444;
+      margin: 30px 0;
+    }
+    .recommend-bottom {
+      display: flex;
+      margin-top: 20px;
+    }
+    .recommend-bottom img {
+      width: 30%;
+      height: 250px;
+      border: 3px solid #444;
+      object-fit: cover;
+      background-color: white;
+    }
+    .recommend-similar {
+      width: 70%;
+      height: 250px;
+      padding: 20px;
+      font-size: 16px;
+      border: 3px solid #000;
+      background: white;
+    }
+    .footer {
+      padding: 20px 0 0 15px;
+      border-top: solid 3px black;
+      background: white;
+      border-bottom: solid 3px black;
+    }
+    @media screen and (max-width: 768px) {
+        .main { 
+          display: block;
+        }
+        .aside,
+        .content {
+          width: 100%;
+        }
+        .recommend-top {
+          display: block;
+        }
+        .recommend-top-left,
+        .recommend-desc {
+          width: 100%;
+        }
+        .recommend-top-left img {
+          width: 100%;
+          height: auto;
+        }
+        .thumbnail-bar {
+          margin-left: 0;
+          text-align: center;
+        }
+        .thumbnail-bar img {
+          width: 60px;
+          height: 60px;
+          margin: 6px;
+        }
+        .recommend-desc {
+          height: auto;
+          padding: 15px;
+          font-size: 20px;
+          text-align: center;
+        }
+        .recommend-bottom {
+          display: block;
+        }
+        .recommend-bottom img {
+          width: 100%;
+          height: auto;
+          margin-bottom: 10px;
+        }
+        .recommend-similar {
+          width: 100%;
+          height: auto;
+          padding: 15px;
+          font-size: 15px;
+        }
+        h4 {
+          font-size: 20px;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        .topnav #menu_logo img {
+          width: 30px;
+          height: 30px;
+        }
+        .topnav li.item {
+          margin: 0 5px;
+        }
+        .topnav a {
+          font-size: 12px;
+          padding: 6px 10px;
+        }
+        .thumbnail-bar img {
+          width: 50px;
+          height: 50px;
+          margin: 4px;
+        }
+        h4 {
+          font-size: 18px;
+        }
+      }
+      @media screen and (max-width: 350px) {
+        .topnav {
+          text-align: center;
+          padding: 15px 0;
+        }
+        .topnav ul {
+          display: block;
+        }
+        .topnav #menu_logo {
+          display: block;
+          margin: 0 0 10px 0;
+        }
+        .topnav li.item {
+          display: inline-block;
+          margin: 5px 8px;
+        }
+        .topnav a {
+          font-size: 10px;
+          padding: 4px 6px;
+        }
+        .thumbnail-bar img {
+          width: 40px;
+          height: 40px;
+        }
+      }      
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Welcome to my Music Journey</h1>
+    <div class="topnav">
+      <ul>
+        <li id="menu_logo" style="float:left;"><img src="img/logo_m.png"></li>
+        <li class="item"><a href="step_inside.html">Step Inside</a></li>
+        <li class="item"><a href="wanna_listen.html">Wanna Listen?</a></li>
+        <li class="item"><a href="mysound_tips.html">My Sound Tips</a></li>
+        <li class="item"><a href="music_journal.html">Music Journal</a></li>
+        <li class="item active"><a href="hall_of_gear.html">Hall of Gear</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="main">
+    <div class="aside">
+      <h3>Hall Of Gear</h3>
+      <nav>
+        <ul>
+          <li><a href="hall_of_gear.html">나의 악기 소개</a></li>
+          <li class="active"><a href="hall_of_gear2.html">악기 추천</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="content">
+      <h4>악기 추천</h4>
+      <div class="divider"></div>
+      <div class="recommend-top">
+        <div class="recommend-top-left">
+          <img src="img/squier.jpg">
+          <div class="thumbnail-bar">
+            <a href="hall_of_gear2.html"><img src="img/squier.jpg"></a>
+            <a href="hall_of_gear2-2.html"><img src="img/fender_m.jpg"></a>
+            <a href="hall_of_gear2-3.html"><img src="img/shur.jpg"></a>
+          </div>
+        </div>
+        <div class="recommend-desc">
+            <h4>&lt;입문자&gt;</h4><br>
+            <p>입문자에게는 연주 편의성과 가격대의 접근성이 중요한 요소입니다.<br>
+            가볍고 넥이 얇아 손에 잘 맞는 모델을 선택하는 것이 좋습니다.<br>
+            다양한 장르를 맛볼 수 있는 범용적인 픽업 구성이 이상적입니다.<br>
+            그래서 다음과 같은 기타를 추천합니다. <strong>Squier Affinity Stratocaster</strong><br>
+            펜더 보급형으로 나와, 펜더 감성과 기본기에 충실하며 입문자에게 사랑받는 기타입니다!<br>
+            가격 : 약 35만~40만 원
+            </p>
+            <p>
+            For beginners, ease of play and affordability are key factors.<br>
+            Choosing a lightweight guitar with a slim neck makes it more comfortable to play.<br>
+            A versatile pickup configuration is ideal for exploring different genres.<br>
+            So we recommend the following guitar: Squier Affinity Stratocaster<br>
+            As an entry-level model from Fender, it captures the Fender feel and stays true to the basics—making it a favorite among beginners.<br>
+            </p>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <h4>비슷한 급의 악기 추천</h4>
+      <div class="recommend-bottom">
+        <img src="img/yamaha.jpg">
+        <div class="recommend-similar">
+          함께 추천할 만한 기타는 <strong>Yamaha Pacifica 112V</strong>입니다.<br>
+          Squier Affinity Stratocaster보다 약간 더 다양한 톤을 낼 수 있는 HSS 픽업 구성이 특징이며,<br>
+          마감 품질이 우수하고 초보자에게 매우 친숙한 넥감을 가지고 있습니다.<br>
+          디자인은 다소 심플하지만 실용성 면에서는 손색이 없습니다.<br>
+          가격대는 약 38만~42만 원으로 비슷한 예산 안에서 충분히 고려해볼 수 있는 모델입니다.<br><br>
+          Compared to the Squier Affinity Stratocaster, the Yamaha Pacifica 112V offers a more versatile HSS pickup setup.<br>
+          It has great build quality and a neck that’s very beginner-friendly.<br>
+          While the design is simpler, it delivers solid performance and value within the same price range.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <article id="address">
+      <ul id="footer_menu">
+        <li><a href="index.html">main page로 돌아가기</a></li>
+      </ul>
+      <ul id="company_info">  
+        <li>DH's Music Journal(주)</li>
+        <li>대표자 : 김동현</li>
+        <li>주소 : 서울특별시 강동구 성내동 ~</li>
+        <li>전화 : 010-8319-3505, FAX : (02)123-1234</li>
+        <li id="copyright">copyright by DH's Music Journal Company All Rights Reserved.</li>
+      </ul>
+    </article>
+  </div>
+</body>
+</html>

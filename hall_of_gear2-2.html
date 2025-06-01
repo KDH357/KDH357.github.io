@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hall_of_gear - 악기 추천</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial;
+      padding: 10px;
+      background: #333;
+      margin: 0;
+    }
+    .header {
+      padding-top: 50px;
+      text-align: center;
+      background: white;
+    }
+    .header h1 {
+      font-size: 50px;
+    }
+    .topnav {
+      overflow: hidden;
+      background-color: whitesmoke;
+      border-top: solid 3px black;
+      border-bottom: solid 3px black;
+      text-align: center;
+      padding: 10px 0;
+    }
+    .topnav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: inline-block;
+    }
+    .topnav li {
+      display: inline-block;
+    }
+    .topnav #menu_logo {
+      margin-right: 50px;
+    }
+    .topnav #menu_logo img {
+      width: 100px;
+      height: 100px;
+      vertical-align: middle;
+    }
+    .topnav li.item {
+      margin: 0 15px;
+    }
+    .topnav a {
+      display: inline-block;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+      padding: 40px 50px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .topnav li.item.active {
+      background-color: #ddd;
+    }
+    .topnav a:hover {
+      background-color: beige;
+      color: black;
+    }
+    .main {
+      background: white;
+      padding: 40px;
+      margin-top: 0;
+      display: flex;
+    }
+    .aside {
+      width: 20%;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    .aside nav ul {
+      list-style: none;
+      padding: 0;
+    }
+    .aside nav li {
+      margin: 15px 0;
+      font-size: 16px;
+    }
+    .aside nav li.active {
+      font-weight: bold;
+      background-color: #ddd;
+      padding: 5px;
+    }
+    .aside nav li a {
+      color: black;
+      text-decoration: none;
+    }
+    .aside nav li a:hover {
+      text-decoration: underline;
+    }
+    .content {
+      width: 80%;
+      padding: 0 30px;
+    }
+    h4 {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+    .recommend-top {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    .recommend-top-left {
+      width: 60%;
+      text-align: center;
+    }
+    .recommend-top-left img {
+      width: 100%;
+      height: 500px;
+      border: 3px solid #444;
+      object-fit: cover;
+      background-color: white;
+    }
+    .thumbnail-bar {
+      text-align: center;
+      padding: 20px 0;
+      margin-left: 30px;
+    }
+    .thumbnail-bar img {
+      width: 80px;
+      height: 80px;
+      margin: 10px;
+      border: solid 5px #3d3d3d;
+    }
+    .thumbnail-bar img:hover {
+      border-color: white;
+    }
+    .recommend-desc {
+      width: 40%;
+      font-size: 16px;
+      padding: 20px;
+      border: 3px solid #000;
+      background: white;
+      height: 500px;
+    }
+    .divider {
+      width: 100%;
+      height: 1px;
+      border-top: 4px dashed #444;
+      margin: 30px 0;
+    }
+    .recommend-bottom {
+      display: flex;
+      margin-top: 20px;
+    }
+    .recommend-bottom img {
+      width: 30%;
+      height: 250px;
+      border: 3px solid #444;
+      object-fit: cover;
+      background-color: white;
+    }
+    .recommend-similar {
+      width: 70%;
+      height: 250px;
+      padding: 20px;
+      font-size: 16px;
+      border: 3px solid #000;
+      background: white;
+    }
+    .footer {
+      padding: 20px 0 0 15px;
+      border-top: solid 3px black;
+      border-bottom:solid 3px black;
+      background: white;
+    }
+    @media screen and (max-width: 768px) {
+        .main {
+          display: block;
+        }
+        .aside,
+        .content {
+          width: 100%;
+        }
+        .recommend-top {
+          display: block;
+        }
+        .recommend-top-left,
+        .recommend-desc {
+          width: 100%;
+        }
+        .recommend-top-left img {
+          width: 100%;
+          height: auto;
+        }
+        .thumbnail-bar {
+          margin-left: 0;
+          text-align: center;
+        }
+        .thumbnail-bar img {
+          width: 60px;
+          height: 60px;
+          margin: 6px;
+        }
+        .recommend-desc {
+          height: auto;
+          padding: 15px;
+          font-size: 15px;
+        }
+        .recommend-bottom {
+          display: block;
+        }
+        .recommend-bottom img {
+          width: 100%;
+          height: auto;
+          margin-bottom: 10px;
+        }
+        .recommend-similar {
+          width: 100%;
+          height: auto;
+          padding: 15px;
+          font-size: 15px;
+        }
+        h4 {
+          font-size: 20px;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        .topnav #menu_logo img {
+          width: 30px;
+          height: 30px;
+        }
+        .topnav li.item {
+          margin: 0 5px;
+        }
+        .topnav a {
+          font-size: 12px;
+          padding: 6px 10px;
+        }
+        .thumbnail-bar img {
+          width: 50px;
+          height: 50px;
+          margin: 4px;
+        }
+        h4 {
+          font-size: 18px;
+        }
+      }
+      @media screen and (max-width: 350px) {
+        .topnav {
+          text-align: center;
+          padding: 15px 0;
+        }
+        .topnav ul {
+          display: block;
+        }
+        .topnav #menu_logo {
+          display: block;
+          margin: 0 0 10px 0;
+        }
+        .topnav li.item {
+          display: inline-block;
+          margin: 5px 8px;
+        }
+        .topnav a {
+          font-size: 10px;
+          padding: 4px 6px;
+        }
+        .thumbnail-bar img {
+          width: 40px;
+          height: 40px;
+        }
+      }      
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Welcome to my Music Journey</h1>
+    <div class="topnav">
+      <ul>
+        <li id="menu_logo" style="float:left;"><img src="img/logo_m.png"></li>
+        <li class="item"><a href="step_inside.html">Step Inside</a></li>
+        <li class="item"><a href="wanna_listen.html">Wanna Listen?</a></li>
+        <li class="item"><a href="mysound_tips.html">My Sound Tips</a></li>
+        <li class="item"><a href="music_journal.html">Music Journal</a></li>
+        <li class="item active"><a href="hall_of_gear.html">Hall of Gear</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="main">
+    <div class="aside">
+      <h3>Hall Of Gear</h3>
+      <nav>
+        <ul>
+          <li><a href="hall_of_gear.html">나의 악기 소개</a></li>
+          <li class="active"><a href="hall_of_gear2.html">악기 추천</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="content">
+      <h4>악기 추천</h4>
+      <div class="divider"></div>
+      <div class="recommend-top">
+        <div class="recommend-top-left">
+          <img src="img/fender_m.jpg">
+          <div class="thumbnail-bar">
+            <a href="hall_of_gear2.html"><img src="img/squier.jpg"></a>
+            <a href="hall_of_gear2-2.html"><img src="img/fender_m.jpg"></a>
+            <a href="hall_of_gear2-3.html"><img src="img/shur.jpg"></a>
+          </div>
+        </div>
+        <div class="recommend-desc">
+          <h4>&lt;중급자&gt;</h4><br>
+          <p>
+          중급자에게는 자신만의 톤을 찾고 표현할 수 있는 기타가 필요합니다.<br>
+          보다 높은 마감 품질과 신뢰할 수 있는 하드웨어, 안정적인 연주감을 갖춘 모델이 적합합니다.<br>
+          다양한 무대나 합주 환경에서도 버틸 수 있는 성능이 요구됩니다.<br>
+          그래서 다음과 같은 기타를 추천합니다. <strong>Fender Player Stratocaster (Mexico)</strong><br>
+          펜더의 정통 사운드를 느낄 수 있으며, 라이브와 녹음용으로도 충분한 성능을 자랑하는 모델입니다.<br>
+          가격 : 약 100 ~ 110만 원
+          </p>
+          <p>
+          Intermediate players need a guitar that helps them express their own tone and playing style.<br>
+          Models with higher build quality, stable hardware, and consistent playability are ideal.<br>
+          It should perform well in live sessions or jam settings.<br>
+          So we recommend the following guitar: Fender Player Stratocaster (Mexico)<br>
+          It delivers authentic Fender sound and offers great performance for both live and studio use.<br>
+          </p>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <h4>비슷한 급의 악기 추천</h4>
+      <div class="recommend-bottom">
+        <img src="img/g&l.jpg">
+        <div class="recommend-similar">
+          Fender Player Stratocaster와 비슷한 급으로 <strong>G&L Tribute Legacy</strong>를 추천합니다.<br>
+          G&L은 펜더의 공동 창업자 레오 펜더가 후에 만든 브랜드로, 스트랫 기반 설계에 더 현대적인 튜닝이 가미되어 있습니다.<br>
+          더욱 선명한 싱글코일 사운드와 안정적인 하드웨어 세팅이 특징입니다.<br>
+          가격대는 약 80만~95만 원 선으로, 펜더 감성을 유지하면서 색다른 옵션을 찾는 연주자에게 적합합니다.<br><br>
+          The G&L Tribute Legacy is a great alternative to the Fender Player Stratocaster.<br>
+          Created by Leo Fender himself after founding G&L, it retains the Strat-style design with modern upgrades.<br>
+          It offers punchy single-coil tones and solid hardware at a similar price point, around 800,000-950,000 KRW.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <article id="address">
+      <ul id="footer_menu">
+        <li><a href="index.html">main page로 돌아가기</a></li>
+      </ul>
+      <ul id="company_info">  
+        <li>DH's Music Journal(주)</li>
+        <li>대표자 : 김동현</li>
+        <li>주소 : 서울특별시 강동구 성내동 ~</li>
+        <li>전화 : 010-8319-3505, FAX : (02)123-1234</li>
+        <li id="copyright">copyright by DH's Music Journal Company All Rights Reserved.</li>
+      </ul>
+    </article>
+  </div>
+</body>
+</html>

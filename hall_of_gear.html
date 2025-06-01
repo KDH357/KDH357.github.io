@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hall_of_gear - 나의 악기 소개</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: Arial;
+            padding: 10px;
+            background: #333;
+            margin: 0;
+        }
+        .header {
+            padding-top:50px;
+            text-align:center;
+            background: white;
+        }
+        .header h1 {
+            font-size: 50px;
+        }
+        .topnav {
+            overflow: hidden;
+            background-color: whitesmoke;
+            border-top: solid 3px black;
+            border-bottom: solid 3px black;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .topnav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: inline-block;
+        }
+        .topnav li {
+            display: inline-block;
+        }
+        .topnav #menu_logo {
+            margin-right: 50px;
+        }
+        .topnav #menu_logo img {
+            width: 100px;
+            height: 100px;
+            vertical-align: middle;
+        }
+        .topnav li.item {
+            margin: 0 15px;
+        }
+        .topnav a {
+            display: inline-block;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            padding: 40px 50px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .topnav li.item.active {
+            background-color: #ddd;
+        }
+        .topnav a:hover {
+            background-color: beige;
+            color:black;
+        }
+        .main {
+            background: white;
+            padding: 40px;
+            margin-top: 0;
+            display: flex;
+        }
+        .aside {
+            width: 20%;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        .aside nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        .aside nav li {
+            margin: 15px 0;
+            font-size: 16px;
+        }
+        .aside nav li.active {
+            font-weight: bold;
+            background-color: #ddd;
+            padding: 5px;
+        }
+        .aside nav li a {
+            color: black;
+            text-decoration: none;
+        }
+        .aside nav li a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            width: 80%;
+            padding: 0 30px;
+        }
+        .photo-section h4 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .main-photo {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .main-photo img {
+            width: 50%;
+            height: 800px;
+            border: 3px solid #444;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        .text_container {
+            margin: 20px 0;
+            border: 3px solid #000;
+            padding: 15px;
+            background: #f9f9f9;
+            font-size: 16px;
+        }
+        .dream-section {
+            display: flex;
+            margin-top: 40px;
+        }
+        .dream-item {
+            width: 50%;
+            display: flex;
+            margin-right: 20px;
+        }
+        .dream-item img {
+            width: 50%;
+            height: 300px;
+            border: 3px solid #444;
+            object-fit: cover;
+        }
+        .text-box {
+            width: 50%;
+            font-size: 15px;
+            padding: 10px;
+        }
+        .line {
+            width: 100%;
+            height: 1px;
+            border-top: 4px dashed #444;
+            margin: 20px 0;
+        }
+        .footer {
+            padding: 20px 0 0 15px;
+            border-top:solid 3px black;
+            border-bottom:solid 3px black;
+            background: white;
+        }
+        @media screen and (max-width: 768px){
+            .header h1 { font-size: 36px; }
+            .topnav #menu_logo {
+                margin-left: 10px;
+                margin-right: 20px;
+            }
+            .topnav #menu_logo img {
+                width: 40px;
+                height: 40px;
+            }
+            .topnav li.item {
+                margin: 0 8px;
+            }
+            .topnav a {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+            .main {
+                display: block;
+            }
+            .aside {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .content {
+                width: 100%;
+            }
+            .main-photo {
+                display: block;
+            }
+            .main-photo img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 15px;
+            }
+            .dream-section {
+                display: block;
+            }
+            .dream-item {
+                display: block;
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            .dream-item img {
+                width: 100%;
+                height: auto;
+            }
+            .text-box {
+                width: 100%;
+                font-size: 14px;
+                padding: 10px 0;
+            }
+        }
+        @media screen and (max-width: 480px){
+            .topnav #menu_logo { margin-right: 8px; }
+            .topnav #menu_logo img { width: 30px; height: 30px; }
+            .topnav li.item { margin: 0 3px; }
+            .topnav a { font-size: 10px; padding: 4px 6px; }
+        }
+        @media screen and (max-width: 350px){
+            .topnav { text-align: center; padding: 15px 0; }
+            .topnav ul { display: block; }
+            .topnav #menu_logo { display: block; margin: 0 0 10px 0; }
+            .topnav #menu_logo img { width: 40px; height: 40px; }
+            .topnav li.item { display: inline-block; margin: 5px 8px; }
+            .topnav a { font-size: 14px; padding: 8px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to my Music Journey</h1>
+        <div class="topnav">
+            <ul>
+                <li id="menu_logo" style="float:left;"><img src="img/logo_m.png"></li>
+                <li class="item"><a href="step_inside.html">Step Inside</a></li>
+                <li class="item"><a href="wanna_listen.html">Wanna Listen?</a></li>
+                <li class="item"><a href="mysound_tips.html">My Sound Tips</a></li>
+                <li class="item"><a href="music_journal.html">Music Journal</a></li>
+                <li class="item active"><a href="hall_of_gear.html">Hall of Gear</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <div class="aside">
+            <h3>Hall Of Gear</h3>
+            <nav>
+                <ul>
+                    <li class="active"><a href="mysound_tips.html">나의 악기 소개</a></li>
+                    <li><a href="hall_of_gear2.html">악기 추천</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <div class="photo-section">
+                <h4>나의 악기 소개</h4>
+                <div class="line"></div>
+                <div class="main-photo">
+                    <img src="img/myi.jpg">
+                    <img src="img/myi2.jpg">
+                </div>
+                <div class="text_container">
+                    <p>
+                    왼쪽은 나의 첫 기타인 통기타이고, 모델명은 Crafter God in us<br>
+                    라는 입문자가 치기에 가성비가 매우 좋은 중급 기타입니다.<br>
+                    좋은 기타는 아니지만 제가 사용하기에는 매우 좋은 악기였습니다.<br>
+                    우측은 큰 마음먹고 산 일렉기타이며, 모델명은 PRS SE시리즈이고 생산년도는 기억나지 않습니다.<br>
+                    보통 입문자 보다는 전공생들이 많이 사용하며, 이제는 생산되지 않는 바디 색을 보유하고 있습니다. 정말 이쁘죠?
+                    </p>
+                    <p>
+                        The left one is my first guitar, an acoustic model named Crafter God in us.<br>
+                        It's a mid-range guitar with excellent cost-performance for beginners.<br>  
+                        While it’s not a high-end instrument, it served me very well.<br>  
+                        The one on the right is an electric guitar I bought after much consideration, a PRS SE series model.<br>
+                        I don’t remember the exact production year, but it’s a body color that is no longer in production, often used by music majors rather than beginners.<br>
+                        Isn't it beautiful?
+                    </p>
+                        
+                </div>
+
+                <h4>나의 꿈의 악기</h4>
+                <div class="line"></div>
+                <div class="dream-section">
+                    <div class="dream-item">
+                        <img src="img/dream1.jpg">
+                        <div class="text-box">
+                            Shur Classic S<br>
+                            존써 클래식 S라는 모델로 전공생, 기타리스트 사이에서도 흔히 높게 평가받는 모델입니다.<br>
+                            평범하게 생겨보이는 기타와는 다르게, 누구보다도 강력한 존재감을 지니고 있는 친구입니다. 가격은 매우 비싸요.....<br>
+                            <br>
+                            This is a model called John Suhr Classic S, which is highly praised even among music majors and professional guitarists.<br>
+                            Though it may look ordinary at first glance, it holds an incredibly strong presence. And yes... it's very expensive.                        
+                        </div>
+                    </div>
+                    <div class="dream-item">
+                        <img src="img/dream2.jpg">
+                        <div class="text-box">
+                            PRS Custom<br>
+                            이 친구는 현재 제가 사용하고 있는 기타와 같튼 브랜드의 상위 모델입니다. 돋보적인 색깔과 사운드로 사랑을 많이 받고 있어요.<br>
+                            화려하게 생긴 바디어 걸맞게 정말 매우 좋은 소리와 아주 값비싼 친구랍니다....<br>
+                            <br>
+                            This guitar is a higher-end model from the same brand as the one I'm currently using.<br>
+                            It’s loved for its standout color and sound quality.<br>
+                            Just like its flashy body, it delivers an exceptionally rich tone—and yes, it's quite an expensive piece...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <article id="address">
+          <ul id="footer_menu">
+            <li><a href="index.html">main page로 돌아가기</a></li>
+          </ul>
+          <ul id="company_info">  
+            <li>DH's Music Journal(주)</li>
+            <li>대표자 : 김동현</li>
+            <li>주소 : 서울특별시 강동구 성내동 ~</li>
+            <li>전화 : 010-8319-3505, FAX : (02)123-1234</li>
+            <li id="copyright">copyright by DH's Music Journal Company All Rights Reserved.</li>
+          </ul>
+        </article>
+      </div>
+</body>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Inside - 작업실 소개</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: Arial;
+            padding: 10px;
+            background: #333;
+            margin: 0;
+        }
+        .header {
+            padding-top:50px;
+            text-align:center;
+            background: white;
+        }
+        .header h1 {
+            font-size: 50px;
+        }
+        .topnav {
+            overflow: hidden;
+            background-color: whitesmoke;
+            border-top: solid 3px black;
+            border-bottom: solid 3px black;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .topnav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: inline-block;
+        }
+        .topnav li {
+            display: inline-block;
+        }
+        .topnav #menu_logo {
+            margin-right: 50px;
+        }
+        .topnav #menu_logo img {
+            width: 100px;
+            height: 100px;
+            vertical-align: middle;
+        }
+        .topnav li.item {
+            margin: 0 15px;
+        }
+        .topnav a {
+            display: inline-block;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            padding: 40px 50px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .topnav li.item.active {
+            background-color: #ddd;
+        }
+        .topnav a:hover {
+            background-color: beige;
+            color:black;
+        }
+        .main {
+            background: white;
+            padding: 40px;
+            margin-top: 0;
+            display: flex;
+        }
+        .aside {
+            width: 20%;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        .aside nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        .aside nav li {
+            margin: 15px 0;
+            font-size: 16px;
+        }
+        .aside nav li.active {
+            font-weight: bold;
+            background-color: #ddd;
+            padding: 5px;
+        }
+        .aside nav li a {
+            color: black;
+            text-decoration: none;
+        }
+        .aside nav li a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            width: 80%;
+            padding: 0 30px;
+        }
+        .photo-section h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .main-photo {
+            margin-bottom: 20px;
+            display: flex;
+        }
+        .main-photo img {
+            width: 50%;
+            height: 600px;
+            border: 3px solid #444;
+            margin: 0 10px;
+            object-fit: cover; 
+        }
+        .thumbnail-bar {
+            text-align: center;
+            padding: 20px 0;
+            margin-left: 30px;
+        }
+        .thumbnail-bar img {
+            width: 80px;
+            height: 80px;
+            margin: 10px;
+            border: solid 5px #3d3d3d;
+        }
+        .thumbnail-bar img:hover {
+            border-color: white;
+        }
+        .text_container {
+            border: solid 5px black;
+            border-radius: 5px;
+            width:100%;
+            height:auto;
+            text-align: center;
+            font-size: 18px;
+            margin:15px;   
+        }
+        .text_container h4 {
+            text-align: left;
+            font-size: 25px;
+            margin-left: 25px;
+        }
+        .footer {
+            padding: 20px 0 0 15px;
+            border-top:solid 3px black;
+            border-bottom:solid 3px black;
+            background: white;
+        }
+        @media screen and (max-width: 768px){
+            .header h1 {
+                font-size: 36px;
+            }
+            .topnav #menu_logo {
+                margin-left: 10px;
+                margin-right: 20px;
+            }
+            .topnav #menu_logo img {
+                width: 40px;
+                height: 40px;
+            }
+            .topnav li.item {
+                margin: 0 8px;
+            }
+            .topnav a{
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+            .main {
+                flex-direction: column;
+            }
+            .aside, .content {
+                width: 100%;
+            }
+            .main-photo {
+                flex-direction: column;
+            }
+            .main-photo img {
+                width: 90%;
+                height: auto;
+                margin: 10px auto;
+            }
+        }
+        @media screen and (max-width: 480px){
+            .topnav #menu_logo {
+                margin-right: 8px;
+            }
+            .topnav #menu_logo img {
+                width: 30px;
+                height: 30px;
+            }
+            .topnav li.item {
+                margin: 0 3px;
+            }
+            .topnav a{
+                font-size: 10px;
+                padding: 4px 6px;
+            }
+        }
+        @media screen and (max-width: 350px){
+            .topnav {
+                text-align: center;
+                padding: 15px 0;
+            }
+            .topnav ul {
+                display: block;
+            }
+            .topnav #menu_logo {
+                display: block;
+                margin: 0 0 10px 0;
+            }
+            .topnav #menu_logo img {
+                width: 40px;
+                height: 40px;
+            }
+            .topnav li.item {
+                display: inline-block;
+                margin: 5px 8px;
+            }
+            .topnav a{
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to my Music Journey</h1>
+        <div class="topnav">
+            <ul>
+                <li id="menu_logo" style="float:left;"><img src="../img/logo_m.png"></li>
+                <li class="item active"><a href="../step_inside.html">Step Inside</a></li>
+                <li class="item"><a href="../wanna_listen.html">Wanna Listen?</a></li>
+                <li class="item"><a href="../mysound_tips.html">My Sound Tips</a></li>
+                <li class="item"><a href="../music_journal.html">Music Journal</a></li>
+                <li class="item"><a href="../hall_of_gear.html">Hall of Gear</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="aside">
+            <h3>Step Inside</h3>
+            <nav>
+                <ul>
+                    <li class="active"><a href="../step_inside.html">작업실 소개</a></li>
+                    <li><a href="../step_inside_caution.html">사용 주의사항</a></li>
+                    <li><a href="../step_inside_map.html">오시는 길</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content">
+            <div class="photo-section">
+                <div class="main-photo">
+                    <img src="../img/room4.jpg">
+                    <img src="../img/room4_1.jpg">
+                </div>
+                <div class="thumbnail-bar">
+                    <a href="../step_inside.html"><img src="../img/studio_logo1.jpg"></a>
+                    <a href="room1.html"><img src="../img/room1.jpg"></a>
+                    <a href="room2.html"><img src="../img/room2.jpg"></a>
+                    <a href="room3.html"><img src="../img/room3.jpg"></a>
+                    <a href="room5.html"><img src="../img/room5.jpg"></a>
+                </div>
+                <div class="text_container">
+                    <h4>Fourth Rooom</h4>
+                    <p>
+                        연습실 4번방은 작업실 내에서 가장 넓은 공간으로, 여유 있는 동선과 쾌적한 환경이 특징입니다.<br>
+                        보컬 연습은 물론, 움직임이 필요한 퍼포먼스나 소규모 합주 등 다양한 용도로 활용이 가능합니다.
+                    </p>
+                    <br>
+                    <p>
+                        Room 4 is the largest space in the studio, offering ample room and a comfortable atmosphere. It is suitable for vocal practice, movement-based performances, or small ensemble sessions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <article id="address">
+          <ul id="footer_menu">
+            <li><a href="index.html">main page로 돌아가기</a></li>
+          </ul>
+          <ul id="company_info">  
+            <li>DH's Music Journal(주)</li>
+            <li>대표자 : 김동현</li>
+            <li>주소 : 서울특별시 강동구 성내동 ~</li>
+            <li>전화 : 010-8319-3505, FAX : (02)123-1234</li>
+            <li id="copyright">copyright by DH's Music Journal Company All Rights Reserved.</li>
+          </ul>
+        </article>
+      </div>
+</body>
+</html>

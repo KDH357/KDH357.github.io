@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Journal-나의 음악 일기</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: Arial;
+            padding: 10px;
+            background: #333;
+            margin: 0;
+        }
+        .header {
+            padding-top:50px;
+            text-align:center;
+            background: white;
+        }
+        .header h1 {
+            font-size: 50px;
+        }
+        .topnav {
+            overflow: hidden;
+            background-color: whitesmoke;
+            border-top: solid 3px black;
+            border-bottom: solid 3px black;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .topnav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: inline-block;
+        }
+        .topnav li {
+            display: inline-block;
+        }
+        .topnav #menu_logo {
+            margin-right: 50px;
+        }
+        .topnav #menu_logo img {
+            width: 100px;
+            height: 100px;
+            vertical-align: middle;
+        }
+        .topnav li.item {
+            margin: 0 15px;
+        }
+        .topnav a {
+            display: inline-block;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            padding: 40px 50px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .topnav li.item.active {
+            background-color: #ddd;
+        }
+        .topnav a:hover {
+            background-color: beige;
+            color:black;
+        }
+        .line {
+            width: 100%;
+            height: 1px;
+            border-top: 4px dashed #444;
+            margin: 15px 0;
+        }
+        .main {
+            background: white;
+            padding: 40px;
+            margin-top: 0;
+        }
+        .band-section{
+            margin-bottom: 40px;
+        }
+        .band-grid {
+            width: 100%;
+        }
+        .band-item {
+            display: inline-block;
+            width: 32%;
+            background: #f2f2f2;
+            padding: 10px;
+            margin-bottom: 20px;
+            margin-right: 1%;
+            text-align: left;
+            vertical-align: top;
+        }
+        .band-item img {
+            width: 100%;
+            height: 400px;
+            border: 3px solid #444;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .band-item .band-info p {
+            font-size: 15px;
+            margin: 5px 0;
+        }
+        .emoji-section {
+            margin-bottom: 30px;
+        }
+        .emoji-box {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #fff0f5;
+            border-radius: 20px;
+            border: 2px solid #ccc;
+        }
+        .emoji-title {
+            text-align: left;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #444;
+            font-weight: bold;
+        }
+        .emoji-row {
+            text-align: center;
+        }
+        .emoji-item {
+            display: inline-block;
+            width: 280px;
+            height: 280px;
+            margin: 50px 30px;
+            background-color: #ffffff;
+            border: 5px solid #bbb;
+            border-radius: 50%;
+            padding-top: 50px;
+            vertical-align: top;
+        }
+        .emoji-item:hover {
+            border-color: #ff99aa;
+            background-color: #ffe6ee;
+        }
+        .emoji-item:active {
+            border-color: #ff3366;
+            background-color: #ffdce5;
+        }
+        .emoji-icon {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+        .emoji-text {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+            margin-top: 10px;
+        }
+        .footer {
+            clear: both;
+            padding: 20px 0 0 15px;
+            border-top:solid 3px black;
+            border-bottom:solid 3px black;
+            background: white;
+        }
+        @media screen and (max-width: 768px){
+            .header h1 { font-size: 36px; }
+            .topnav #menu_logo {
+                margin-left: 10px;
+                margin-right: 20px;
+            }
+            .topnav #menu_logo img {
+                width: 40px;
+                height: 40px;
+            }
+            .topnav li.item {
+                margin: 0 8px;
+            }
+            .topnav a{
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+            .band-item {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+        @media screen and (max-width: 480px){
+            .topnav #menu_logo { margin-right: 8px; }
+            .topnav #menu_logo img { width: 30px; height: 30px; }
+            .topnav li.item { margin: 0 3px; }
+            .topnav a{ font-size: 10px; padding: 4px 6px; }
+        }
+        @media screen and (max-width: 350px){
+            .topnav { text-align: center; padding: 15px 0; }
+            .topnav ul { display: block; }
+            .topnav #menu_logo { display: block; margin: 0 0 10px 0; }
+            .topnav #menu_logo img { width: 40px; height: 40px; }
+            .topnav li.item { display: inline-block; margin: 5px 8px; }
+            .topnav a{ font-size: 14px; padding: 8px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to my Music Journey</h1>
+        <div class="topnav">
+            <ul>
+                <li id="menu_logo" style="float:left;"><img src="img/logo_m.png"></li>
+                <li class="item"><a href="step_inside.html">Step Inside</a></li>
+                <li class="item"><a href="wanna_listen.html">Wanna Listen?</a></li>
+                <li class="item"><a href="mysound_tips.html">My Sound Tips</a></li>
+                <li class="item active"><a href="music_journal.html">Music Journal</a></li>
+                <li class="item"><a href="hall_of_gear.html">Hall of Gear</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+        <section class="band-section">
+            <h2>Music Journal</h2>
+            <div class="line"></div>
+            <div class="band-grid">
+                <div class="band-item">
+                    <img src="img/child.png">
+                    <div class="band-info">
+                        <p><span class="label">어린이 시절</span></p>
+                        <p>음악이 뭔지도 몰랐던 시절, 건반 하나하나를 두드리며 처음으로 ‘소리’라는 세계를 알게 되었습니다.<br>
+                            피아노는 제 첫 스승이자, 음악이라는 길의 출발점이었습니다.<br>
+                            Back when I didn’t even understand what music was,<br>
+                            I discovered the world of sound one key at a time. The piano was my very first teacher—the starting point of everything.    
+                        </p>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <img src="img/middle.jpg">
+                    <div class="band-info">
+                        <p><span class="label">청소년 시절</span></p>
+                        <p>
+                            청소년기에는 기타가 멋있어 보여 관심을 기울이고 통기타를 배웠습니다.<br>
+                            학교 끝나고 혼자 앉아 코드를 익히며, '나만의 음악'을 만드는 시작점이 되었습니다.<br><br>
+                            Now I play the electric guitar, chasing my own sound.<br>
+                            It’s no longer imitation—I can express my own tone and emotion.<br>
+                            These days, I'm truly drawn to creating music.
+                        </p>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <img src="img/now.jpg">
+                    <div class="band-info">
+                        <p><span class="label">지금의 나</span></p>
+                        <p>
+                            이제는 일렉기타를 잡고 연주를 시작합니다. 나만의 음악을 추구하며, 더 이상 흉내가 아닌<br>
+                            나만의 소리와 감정을 연주할 수 있게 되었습니다. 지금은 음악 만드는 것에 흥미를 느낍니다.<br>
+                            Now I play the electric guitar, pursuing a sound that’s truly mine.<br>
+                            I no longer imitate—I express my own feelings and style through every note.<br>
+                            Lately, I've found real excitement in creating music from scratch.
+                        </p> 
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="emoji-section">
+            <div class="emoji-box">
+                <div class="line"></div>
+                <div class="emoji-title">&lt;우리에게 하는 한마디&gt;</div>
+                <div class="emoji-row">
+                    <div class="emoji-item">
+                        <div class="emoji-icon">🌿</div>
+                        <div class="emoji-text">조금 더 천천히 가도 괜찮아</div>
+                    </div>
+                    <div class="emoji-item">
+                        <div class="emoji-icon">📍</div>
+                        <div class="emoji-text">지금 여기에 집중하자</div>
+                    </div>
+                    <div class="emoji-item">
+                        <div class="emoji-icon">🌅</div>
+                        <div class="emoji-text">절대 포기하지 마</div>
+                    </div>
+                </div>
+                <div class="emoji-row">
+                    <div class="emoji-item">
+                        <div class="emoji-icon">🍀</div>
+                        <div class="emoji-text">매일 한 단계씩 연습하자</div>
+                    </div>
+                    <div class="emoji-item">
+                        <div class="emoji-icon">🎧</div>
+                        <div class="emoji-text">잠시 음악과 함께 쉬어가자</div>
+                    </div>
+                    <div class="emoji-item">
+                        <div class="emoji-icon">🌸</div>
+                        <div class="emoji-text">지금의 너의 감정을 담아내</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    </div>
+    <div class="footer">
+        <article id="address">
+          <ul id="footer_menu">
+            <li><a href="index.html">main page로 돌아가기</a></li>
+          </ul>
+          <ul id="company_info">  
+            <li>DH's Music Journal(주)</li>
+            <li>대표자 : 김동현</li>
+            <li>주소 : 서울특별시 강동구 성내동 ~</li>
+            <li>전화 : 010-8319-3505, FAX : (02)123-1234</li>
+            <li id="copyright">copyright by DH's Music Journal Company All Rights Reserved.</li>
+          </ul>
+        </article>
+      </div>
+</body>
+</html>
+

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanna Listen - 나의 음악 소개</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: Arial;
+            padding: 10px;
+            background: #333;
+            margin: 0;
+        }
+        .header {
+            padding-top:50px;
+            text-align:center;
+            background: white;
+        }
+        .header h1 {
+            font-size: 50px;
+        }
+        .topnav {
+            overflow: hidden;
+            background-color: whitesmoke;
+            border-top: solid 3px black;
+            border-bottom: solid 3px black;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .topnav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: inline-block;
+        }
+        .topnav li {
+            display: inline-block;
+        }
+        .topnav #menu_logo {
+            margin-right: 50px;
+        }
+        .topnav #menu_logo img {
+            width: 100px;
+            height: 100px;
+            vertical-align: middle;
+        }
+        .topnav li.item {
+            margin: 0 15px;
+        }
+        .topnav a {
+            display: inline-block;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            padding: 40px 50px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .topnav li.item.active {
+            background-color: #ddd;
+        }
+        .topnav a:hover {
+            background-color: beige;
+            color:black;
+        }
+        .line {
+            width: 100%;
+            height: 1px;
+            border-top: 4px dashed #444;
+            margin: 15px 0;
+        }
+        .main {
+            background: white;
+            padding: 40px;
+            margin-top: 0;
+        }
+        .band-section, .track-section {
+            margin-bottom: 40px;
+        }
+        .band-grid {
+            width: 100%;
+        }
+        .band-item {
+            display: inline-block;
+            width: 32%;
+            background: #f2f2f2;
+            padding: 10px;
+            margin-bottom: 20px;
+            margin-right: 1%;
+            text-align: left;
+            vertical-align: top;
+        }
+        .band-item img {
+            width: 100%;
+            height: 400px;
+            border: 3px solid #444;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .band-item video{
+            width: 100%;
+            height: 400px;
+            border: 3px solid #444;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .band-item .band-info p {
+            font-size: 15px;
+            margin: 5px 0;
+        }
+        .track-section {
+            overflow: hidden;
+        }
+        .track-video {
+            float: left;
+            width: 50%;
+        }
+        .track-video video {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border: 3px solid #444;
+        }
+        .text-box {
+            float: right;
+            width: 50%;
+            font-size: 16px;
+            border: 3px solid #444;
+            padding: 20px;
+            background-color: #fafafa;
+            height: 500px;
+            overflow-y: auto; /* 스크롤 기능 추가로 반응형 웹에서 작동하게 함. */
+        }
+        .text-box .label {
+            display: inline-block;
+            width: 80px;
+            font-weight: bold;
+        }
+        .text-box p {
+            margin: 8px 0;
+        }
+        .footer {
+            clear: both;
+            padding: 20px 0 0 15px;
+            border-top:solid 3px black;
+            border-bottom:solid 3px black;
+            background: white;
+        }
+        @media screen and (max-width: 768px){
+            .header h1 { font-size: 36px; }
+            .topnav #menu_logo {
+                margin-left: 10px;
+                margin-right: 20px;
+            }
+            .topnav #menu_logo img {
+                width: 40px;
+                height: 40px;
+            }
+            .topnav li.item {
+                margin: 0 8px;
+            }
+            .topnav a{
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+            .band-item {
+                width: 100%;
+                margin-right: 0;
+            }
+            .track-video, .text-box {
+                float: none;
+                width: 100%;
+                height: auto;
+            }
+        }
+        @media screen and (max-width: 480px){
+            .topnav #menu_logo { margin-right: 8px; }
+            .topnav #menu_logo img { width: 30px; height: 30px; }
+            .topnav li.item { margin: 0 3px; }
+            .topnav a{ font-size: 10px; padding: 4px 6px; }
+            .text-box {
+                font-size: 14px;
+                padding: 15px;
+            }
+            .track-video video {
+                height: 300px;
+            }
+            .band-item img, .band-item video {
+                height: 250px;
+            }
+        }
+        @media screen and (max-width: 350px){
+            .topnav { text-align: center; padding: 15px 0; }
+            .topnav ul { display: block; }
+            .topnav #menu_logo { display: block; margin: 0 0 10px 0; }
+            .topnav #menu_logo img { width: 40px; height: 40px; }
+            .topnav li.item { display: inline-block; margin: 5px 8px; }
+            .topnav a{ font-size: 14px; padding: 8px 12px; }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to my Music Journey</h1>
+        <div class="topnav">
+            <ul>
+                <li id="menu_logo" style="float:left;"><img src="img/logo_m.png"></li>
+                <li class="item"><a href="step_inside.html">Step Inside</a></li>
+                <li class="item active"><a href="wanna_listen.html">Wanna Listen?</a></li>
+                <li class="item"><a href="mysound_tips.html">My Sound Tips</a></li>
+                <li class="item"><a href="music_journal.html">Music Journal</a></li>
+                <li class="item"><a href="hall_of_gear.html">Hall of Gear</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+        <section class="band-section">
+            <h2>밴드 소개 (활동)</h2>
+            <div class="line"></div>
+            <div class="band-grid">
+                <div class="band-item">
+                    <img src="img/band1.jpg" alt="band3">
+                    <div class="band-info">
+                        <p><span class="label">장소:</span> 홍대 롤로코스터 공연장</p>
+                        <p><span class="label">곡:</span> 혜성 (Younha) 외 9곡</p>
+                        <p><span class="label">밴드 소개:</span>우리 밴드를 소개합니다!!<br>
+                        지금은 각자 바쁜 삶속에 구성원이 많이 흩어졌지만 누구보다 음악에 진심이고, 열정을 가지고 잘 노는 NO:MAD랍니다. 음악은 여러 장르 가리지 않고 열심히 하고 있습니다!!</p>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <img src="img/band2.jpg" alt="band1">
+                    <div class="band-info">
+                        <p><span class="label">장소:</span>홍대 가로수길</p>
+                        <p><span class="label">곡:</span>Champagne Supernova (Oasis) 외 5곡</p>
+                        <p><span class="label">활동:</span>2022년 홍대 가로수길 버스킹을 진행하였습니다.<br>
+                        코로나로 인한 거리두기 정책이 완화되고 난 후 인생 처음 버스킹 모두 떨리지만 미션 완수했습니다!</p>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <video src="img/band_video.mp4" controls></video>
+                    <div class="band-info">
+                        <p><span class="label">장소:</span>수내 어딘가의 합주실...</p>
+                        <p><span class="label">곡:</span> 0310 (Yerin Baek)</p>
+                        <p><span class="label">활동:</span>우리 밴드가 처음 만나서 진행했던 첫 합주... <br>
+                        어색한 와중에도 서로의 음악을 들려주느라 집중하는 모습입니다.<br>
+                        지금은 당연히 저때보다 한참 잘한답니다. ☺️</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="track-section">
+            <div class="line"></div>
+            <h2>자작곡 소개</h2>
+            <div class="track-video">
+                <video src="img/my_song.mp4" controls></video>
+            </div>
+            <div class="text-box">
+                <p><span class="label">곡명:</span>comma</p>
+                <p><span class="label">장르:</span>인디R&B</p>
+                <p><span class="label">제작 시기:</span>2024년 9월 ~</p>
+                <p><span class="label">영감:</span>누구에게나 힘든 시기가 있고, 쉬어가는 것이 필요하다고 생각하였습니다</p>
+                <p><span class="label">작사:</span>밴드 보컬과 함께 작사 진행중입니다.</p>
+                <p><span class="label">설명:</span>악기는 밴드 풀 세션으로 구성 예정이며, 현재는 가이드 라인만 잡혀있습니다. 이 곡은 "삶에서의 지치고 어려운 순간들에
+                    쉬어가는 것이 나쁜 것은 아니다" 는 주제를 담고 있으며, 잠시 쉬어가도 늦지 않는다는 긍정적인 의미를 전하는 노래가 되었으면 합니다. 
+                    서정적인 가사와 그에 걸맞는 구성, 적절한 세션들을 활용하여 위로가 되는 음악이 되었으면 하는 마음에 가사를 쓰고 노래를 가다듬고 있는 중입니다.
+                    혹시, 저희와 함께 하고 싶으신 분이 있다면 주저하지 말고 지금 당장 연락하세요! 언제나 환영입니다. 모든 연락 수단은 페이지 제일 하단을 참고해주세요!
+                </p>
+                <p><span class="label">가사:</span>
+                    <br>
+                    Verse 1<br>
+                    누군가의 울음들, 들려오는 그 목소리
+                    견딜 수 없던 순간에, 견뎌냈던 그 쉼표로
+                    이제는 알 것만 같아,
+                    무너졌던 그 때를 말야 — 이젠 알아
+                    <br>
+                    Pre-Chorus<br>
+                    잠시 멈춰서 있어도 좋아
+                    숨을 고르는 그 순간도
+                    내가 언제나 곁에 있을게
+                    기억해줘
+                    <br>
+                    Chorus<br>
+                    The starry night, 별이 흘러가는 밤
+                    그때를 떠올리며 수많은 쉼표들을
+                    다정히 안아보기도 해
+                    The only one story in my life
+                    넘어졌던 기억 위에 쉼은 조용히 남아
+                    우리의 음악을 이어가
+                </p>
+            </div>
+        </section>
+    </div>
+    <div class="footer">
+        <article id="address">
+          <ul id="footer_menu">
+            <li><a href="index.html">main page로 돌아가기</a></li>
+          </ul>
+          <ul id="company_info">  
+            <li>DH's Music Journal(주)</li>
+            <li>대표자 : 김동현</li>
+            <li>주소 : 서울특별시 강동구 성내동 ~</li>
+            <li>전화 : 010-8319-3505, FAX : (02)123-1234</li>
+            <li id="copyright">copyright by DH's Music Journal Company All Rights Reserved.</li>
+          </ul>
+        </article>
+      </div>
+</body>
+</html>
+

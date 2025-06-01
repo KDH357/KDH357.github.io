@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial;
+            padding: 10px;
+            background:#333;
+            margin: 0;
+        }
+        .header {
+            padding-top:50px;
+            text-align:center;
+            background: white;
+        }
+        .header h1 {
+            font-size: 50px;
+        }
+        .topnav {
+            overflow: hidden;
+            background-color: whitesmoke;
+            border-top: solid 3px black;
+            border-bottom: solid 3px black;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .topnav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: inline-block;
+        }
+        .topnav li {
+            display: inline-block;
+        }
+        .topnav #menu_logo {
+            margin-right: 50px;
+        }
+        .topnav #menu_logo img {
+            width: 100px;
+            height: 100px;
+            vertical-align: middle;
+        }
+        .topnav li.item {
+            margin: 0 15px;
+        }
+        .topnav a {
+            display: inline-block;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            padding: 40px 50px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .topnav a:hover {
+            background-color: beige;
+            color:black;
+        }
+        /* main 과 관련된 내용들*/
+        .main {
+            background: white;
+            padding: 40px;
+            margin-top: 0;
+        }
+        .photo-section {
+            background-color: #333;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            max-width: 1200px;
+            overflow: hidden;
+        }
+        .main-photo{
+            width: 50%;
+            height: 100%;
+            float:left;
+            padding:50px;
+            text-align:center;
+        }
+        .main-photo img {
+            width: 100%;
+            height: 100%;
+            
+        }
+        .photo-text {
+            width: 50%; 
+            float:right;
+            padding: 50px 30px;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .photo-text h2 {
+            color: white;
+            margin: 0 0 20px 100px;
+            font-size: 28px;
+        }
+        .clear {
+            clear:both;
+        }
+        .footer {
+            padding: 20px 0 0 15px;
+            border-top:solid 3px black;
+            border-bottom:solid 3px black;
+            background: white;
+        }
+        footer #address {
+            float:left;
+        }
+        footer #adress ul {
+            list-style-type: none;
+        }
+        footer #footer_menu li {
+            margin-top: 5px;
+        }
+        footer #company_info {
+            margin-top: 20px;
+        }
+        footer #company_info li {
+            margin-top: 2px;
+        }
+        footer #copyright {
+            margin-top: 10px;
+            font-size: 11px;
+            color: #888888;
+        }
+
+        @media screen and (max-width: 768px){
+            .header h1 {
+                font-size: 36px;
+            }
+            .topnav #menu_logo {
+                margin-left: 10px;
+                margin-right: 20px;
+            }
+            .topnav #menu_logo img {
+                width: 40px;
+                height: 40px;
+            }
+            .topnav li.item {
+                margin: 0 8px;
+            }
+            .topnav a{
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+            .main {
+                padding: 30px 20px;
+            }
+            .photo-section {
+                margin: 0 20px;
+                margin-bottom: 30px;
+            }
+            .main-photo {
+                width: 100%;
+                height: 250px;
+                padding: 30px;
+            }
+            .photo-text {
+                width: 100%;
+                padding: 50px 30px;
+            }
+            .photo-text h2 {
+                font-size: 24px;
+            }
+        }
+        @media screen and (max-width: 480px){
+            .topnav #menu_logo {
+                margin-right: 8px;
+            }
+            .topnav #menu_logo img {
+                width: 30px;
+                height: 30px;
+            }
+            .topnav li.item {
+                margin: 0 3px;
+            }
+            .topnav a{
+                font-size: 10px;
+                padding: 4px 6px;
+            }
+            .main {
+                padding: 20px 10px;
+            }
+            .photo-section {
+                margin: 0;
+                margin-bottom: 20px;
+            }
+            .main-photo {
+                width: 100%;
+                height: 200px;
+                padding: 20px;
+            }
+            .photo-text {
+                width: 100%;
+                padding: 40px 20px;
+            }
+            .photo-text h2 {
+                font-size: 20px;
+            }
+        }
+        @media screen and (max-width: 350px){
+            .topnav {
+                text-align: center;
+                padding: 15px 0;
+            }
+            .topnav ul {
+                display: block;
+            }
+            .topnav #menu_logo {
+                display: block;
+                margin: 0 0 10px 0;
+            }
+            .topnav #menu_logo img {
+                width: 40px;
+                height: 40px;
+            }
+            .topnav li.item {
+                display: inline-block;
+                margin: 5px 8px;
+            }
+            .topnav a{
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to my Music Journey</h1>
+        <div class="topnav">
+            <ul>
+                <li id="menu_logo" style="float:left;"><img src="img/logo_m.png"></li>
+                <li class="item active"><a href="step_inside.html">Step Inside</a></li>
+                <li class="item"><a href="wanna_listen.html">Wanna Listen?</a></li>
+                <li class="item"><a href="mysound_tips.html">My Sound Tips</a></li>
+                <li class="item"><a href="music_journal.html">Music Journal</a></li>
+                <li class="item"><a href="hall_of_gear.html">Hall of Gear</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="main">
+        <div class="photo-section">
+            <div class="main-photo">
+                <img src="img/logo_F.png">
+            </div>
+            <div class="photo-text">
+                <h2>이 웹사이트에 관하여<br>(About This Website)</h2>
+                <dl>
+                    <dt>한국어</dt>
+                    <dd>&nbsp;&nbsp;이 웹사이트는 나의 음악 일기로서, 나의 취미인 음악과 관련된 내용을 담은 웹사이트이다.<br>
+                        나의 음악에 대한 관심도와 지금까지의 발자취를 기록하고 있으며 보다 쉽게 접근할 수 있는 나만의 팁을 제공한다.<br>
+                        좌측에 있는 로고는 이니셜인 DH로 제작한 로고이며, 앞으로 모든 메뉴에 함께할 것이다. 이제 자유롭게 둘러보자
+                    </dd>
+                    <br><br>
+                    <dt>English</dt>
+                    <dd>&nbsp;&nbsp;This website serves as my music journal, containing content related to my hobby—music.<br>
+                        It records my journey and growing interest in music, and provides personal tips that make it easier to get started.<br>
+                        The logo on the left, created using my initials "DH," will appear throughout all sections of the site.<br>
+                        Now, feel free to explore!
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="footer">
+        <article id="address">
+          <ul id="footer_menu">
+            <li><a href="index.html">main page로 돌아가기</a></li>
+          </ul>
+          <ul id="company_info">  
+            <li>DH's Music Journal(주)</li>
+            <li>대표자 : 김동현</li>
+            <li>주소 : 서울특별시 강동구 성내동 ~</li>
+            <li>전화 : 010-8319-3505, FAX : (02)123-1234</li>
+            <li id="copyright">copyright by DH's Music Journal Company All Rights Reserved.</li>
+          </ul>
+        </article>
+      </div>
+</body>
+</html>
